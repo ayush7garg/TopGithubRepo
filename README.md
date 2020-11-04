@@ -4,4 +4,6 @@
  1. Install the latest version of Python on your system.
  2. After that install *pip*.
  3. Then, install BeautifulSoup using the following command in the command prompt:
-    '''pip install beautifulsoup4'''
+    '''
+    pip install beautifulsoup4
+    '''
