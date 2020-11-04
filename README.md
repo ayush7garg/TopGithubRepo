@@ -3,9 +3,9 @@
 
  1. Install the latest version of Python on your system.
  2. After that install *pip*.
- 3. Then, install BeautifulSoup using the following command in the command prompt:<br> ```pip install beautifulsoup4```
+ 3. Then, install BeautifulSoup using the following command in the command prompt:<br> ```pip3 install beautifulsoup4```
     
- 4. Now install selenium using the following command:<br>```pip install selenium```
+ 4. Now install selenium using the following command:<br>```pip3 install selenium```
      
  5. Download chromdriver from [this link](https://chromedriver.chromium.org/downloads) corresponding to the version of Google Chrome installed on your system. The version of chromdriver provided in this repo corresponds to the Google Chrome installed on my system.
  6. Now clone the repo locally on your system.
