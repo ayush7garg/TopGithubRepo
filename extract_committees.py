@@ -15,8 +15,8 @@ def extract_top_m_committees(repos,org_name,m):
         url = "https://github.com/"+org_name+"/"+repo[0]+"/graphs/contributors"
         commits = []
         driver.get(url)
-        # waiting for 5 seconds to ensure that the page is fully loaded
-        time.sleep(5)
+        # waiting for 2 seconds to ensure that the page is fully loaded
+        time.sleep(2)
         # parsing the webpage
         page = driver.page_source
         soup = BeautifulSoup(page, 'html.parser')
@@ -26,9 +26,13 @@ def extract_top_m_committees(repos,org_name,m):
             # extracting the name of the contributor
             user_name = user.get_text().strip()
             # extracting the number of commits for the above contributor
-            user_commits = soup.find('a',attrs={'href':'https://github.com/'+org_name+"/"+repo[0]+"/commits?author="+user_name}).get_text().strip()
-            user_commits = user_commits.split(' ')[0]
-            user_commits = int(''.join(user_commits.split(',')))
+            user_commits = soup.find('a',attrs={'href':'https://github.com/'+org_name+"/"+repo[0]+"/commits?author="+user_name})
+            if user_commits is not None:
+                user_commits = user_commits.get_text().strip()
+                user_commits = user_commits.split(' ')[0]
+                user_commits = int(''.join(user_commits.split(',')))
+            else:
+                user_commits = 0
             commits.append([user_name,user_commits])
         # sorting the list 'commits' based on the number of commits of each contributor
         commits = sorted(commits,key=lambda i:i[1],reverse=True)
