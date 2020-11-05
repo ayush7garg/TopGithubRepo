@@ -10,7 +10,7 @@ def extract_top_n_repos(org_name,n):
     # dictionary for storing the repositories and the number of its forks
     repos = {}
     while True:
-        # time.sleep(0.8)
+        #time.sleep(0.05)
         page = urllib.request.urlopen(url)
         soup = BeautifulSoup(page, 'html.parser')
         # scraping the list of organization's source repositories
